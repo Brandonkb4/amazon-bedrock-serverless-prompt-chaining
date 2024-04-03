@@ -24,7 +24,7 @@ WebappStack(
     app,
     "PromptChaining-StreamlitWebapp",
     env=env,
-    parent_domain="brandons-domain",
+    parent_domain="it-eng-ai-tests.internal",
 )
 BlogPostStack(
     app,
