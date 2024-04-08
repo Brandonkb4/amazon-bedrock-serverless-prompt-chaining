@@ -34,12 +34,12 @@ class WebappStack(Stack):
         hosted_zone = route53.HostedZone.from_lookup(
             self, "Zone", domain_name=parent_domain
         )
-        certificate = acm.Certificate(
-            self,
-            "Cert",
-            domain_name=domain_name,
-            validation=acm.CertificateValidation.from_dns(hosted_zone=hosted_zone),
-        )
+        # certificate = acm.Certificate(
+        #     self,
+        #     "Cert",
+        #     domain_name=domain_name,
+        #     # validation=acm.CertificateValidation.from_dns(hosted_zone=hosted_zone),
+        # )
 
         cluster = ecs.Cluster(self, "Cluster", vpc=vpc)
 
@@ -57,7 +57,7 @@ class WebappStack(Stack):
             public_load_balancer=True,
             domain_name=domain_name,
             domain_zone=hosted_zone,
-            certificate=certificate,
+            # certificate=certificate,
         )
 
         # Configure Streamlit's health check
